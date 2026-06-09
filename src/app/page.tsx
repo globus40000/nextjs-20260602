@@ -1,11 +1,13 @@
+import Link from "next/link";
 import { FC } from "react";
 
-const Home: FC = () => {
+const HomePage: FC = () => {
   return (
-    <div className="flex h-screen items-center justify-center bg-blue-500">
-      <h1 className="text-4xl font-bold text-white">Tailwind работает!</h1>
+    <div className="flex h-screen flex-col items-center justify-center bg-blue-500 gap-4">
+      <h1 className="text-4xl font-bold text-white">Home page</h1>
+      <Link href="/rackets">Rackets</Link>
     </div>
   );
 };
 
-export default Home;
+export default HomePage;
