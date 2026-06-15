@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { Link } from "@/components/Link/link";
 import { FC } from "react";
 
 const RacketPage: FC<PageProps<"/racket/[id]">> = async ({ params }) => {

@@ -1,5 +1,5 @@
 import { rackets } from "@/mocks/rackets";
-import Link from "next/link";
+import { Link } from "@/components/Link/link";
 import { FC } from "react";
 
 const RacketsPage: FC = () => {
