@@ -1,5 +1,5 @@
 import { FC, PropsWithChildren } from "react";
-import "./globals.css";
+import "@/app/globals.css";
 
 const RootLayout: FC<PropsWithChildren> = ({ children }) => {
   return (
