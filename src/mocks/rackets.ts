@@ -1,4 +1,6 @@
-export const rackets = [
+import { Racket } from "@/types/products";
+
+export const rackets: Racket[] = [
   {
     id: 1,
     name: "Wilson Pro Staff 97 v14",
