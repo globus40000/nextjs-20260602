@@ -5,7 +5,7 @@ export type Brand = {
 
 export type ProductType = "racket";
 
-export type Racket = {
+export type Product = {
   id: number;
   name: string;
   imageUrl: string;
