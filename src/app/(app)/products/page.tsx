@@ -2,15 +2,15 @@ import { rackets } from "@/mocks/rackets";
 import { Link } from "@/components/Link/link";
 import { FC } from "react";
 
-const RacketsPage: FC = () => {
+const ProductsPage: FC = () => {
   return (
     <div className="flex items-center justify-center bg-emerald-400 flex-col gap-4">
-      <h1 className="text-4xl font-bold text-white">Rackets page</h1>
+      <h1 className="text-4xl font-bold text-white">Products page</h1>
       <Link href="/">Home</Link>
       <ul>
         {rackets.map(({ id }) => (
           <li key={id}>
-            <Link href={`/racket/${id}`}>Racket #{id}</Link>
+            <Link href={`/product/${id}`}>Racket #{id}</Link>
           </li>
         ))}
       </ul>
@@ -18,4 +18,4 @@ const RacketsPage: FC = () => {
   );
 };
 
-export default RacketsPage;
+export default ProductsPage;

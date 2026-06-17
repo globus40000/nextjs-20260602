@@ -11,8 +11,8 @@ export const Navigation: FC = () => {
           </Link>
         </li>
         <li>
-          <Link href="/rackets" highlightIfActive>
-            Ракетки
+          <Link href="/products" highlightIfActive>
+            Каталог
           </Link>
         </li>
       </ul>
