@@ -21,7 +21,7 @@ export const ProductCard: FC<ProductCardProps> = ({ product }) => {
           className="object-cover aspect-440/560 border rounded-lg border-gray-200 shadow-xs"
           loading="eager"
         />
-        <h3>{name}</h3>
+        <h3 className="text-gray-700 text-sm mt-4">{name}</h3>
       </Link>
     </div>
   );
