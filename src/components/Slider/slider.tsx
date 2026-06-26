@@ -48,7 +48,7 @@ export default function Slider<T extends Identifiable>({
         </ul>
         <button
           type="button"
-          className="w-10 h-10 text-gray-400 cursor-pointer mr-4 disabled:cursor-not-allowed disabled:opacity-30 -order-1"
+          className="w-10 h-10 text-gray-400 cursor-pointer mr-4 disabled:cursor-not-allowed disabled:opacity-30 shrink-0 -order-1"
           disabled={activePage === 0}
           onClick={() => scrollToPage(activePage - 1)}
         >
@@ -56,7 +56,7 @@ export default function Slider<T extends Identifiable>({
         </button>
         <button
           type="button"
-          className="w-10 h-10 text-gray-400 cursor-pointer ml-4 disabled:cursor-not-allowed disabled:opacity-30"
+          className="w-10 h-10 text-gray-400 cursor-pointer ml-4 disabled:cursor-not-allowed disabled:opacity-30 shrink-0"
           disabled={activePage >= pagesCount - 1}
           onClick={() => scrollToPage(activePage + 1)}
         >
