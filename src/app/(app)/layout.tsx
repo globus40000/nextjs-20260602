@@ -8,7 +8,7 @@ export const Layout: FC<PropsWithChildren> = ({ children }) => {
       <header className="px-5 border-b border-gray-200">
         <Header />
       </header>
-      <main className="px-5 grow">{children}</main>
+      <main className="px-5 py-13 grow">{children}</main>
       <footer className="px-5 border-t border-gray-200">
         <Footer />
       </footer>
