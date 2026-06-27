@@ -1,14 +1,22 @@
-import { Link } from "@/components/Link/link";
+import { Product } from "@/components/Product/product";
+import { rackets } from "@/mocks/rackets";
+import { notFound } from "next/navigation";
 import { FC } from "react";
 
 const ProductPage: FC<PageProps<"/product/[id]">> = async ({ params }) => {
   const { id } = await params;
+  const productId = parseInt(id);
+  const product = rackets.find(({ id: racketId }) => racketId === productId);
+
+  if (!product) {
+    return notFound();
+  }
 
   return (
-    <div className="flex justify-center items-center bg-fuchsia-400 flex-col gap-4">
-      <h1 className="text-4xl font-bold text-white">Product #{id} page</h1>
-      <Link href="/">Home</Link>
-      <Link href="/products">Products</Link>
+    <div>
+      <article>
+        <Product product={product} />
+      </article>
     </div>
   );
 };
