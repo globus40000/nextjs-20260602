@@ -1,6 +1,6 @@
 "use client";
 
-import { useSlider } from "@/components/Slider/useSlider";
+import { useSlider } from "@/components/Slider/use-slider";
 import { ChevronLeftIcon } from "@/icons/chevron-left-icon";
 import { ChevronRightIcon } from "@/icons/chevron-right-icon";
 import { Identifiable } from "@/types/common";
