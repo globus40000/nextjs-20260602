@@ -1,19 +1,18 @@
+import { BrandFilter } from "@/components/BrandFilter/brand-filter";
+import { ProductsList } from "@/components/ProductsList/products-list";
 import { rackets } from "@/mocks/rackets";
-import { Link } from "@/components/Link/link";
 import { FC } from "react";
 
 const ProductsPage: FC = () => {
   return (
-    <div className="flex items-center justify-center bg-emerald-400 flex-col gap-4">
-      <h1 className="text-4xl font-bold text-white">Products page</h1>
-      <Link href="/">Home</Link>
-      <ul>
-        {rackets.map(({ id }) => (
-          <li key={id}>
-            <Link href={`/product/${id}`}>Racket #{id}</Link>
-          </li>
-        ))}
-      </ul>
+    <div className="grid grid-cols-[5fr_14fr_5fr]">
+      <aside>
+        <BrandFilter />
+      </aside>
+      <div>
+        <h1 className="text-3xl font-semibold">Ракетки</h1>
+        <ProductsList products={rackets} />
+      </div>
     </div>
   );
 };
