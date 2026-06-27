@@ -1,6 +1,5 @@
 import { BrandFilter } from "@/components/BrandFilter/brand-filter";
-import { ProductsList } from "@/components/ProductsList/products-list";
-import { rackets } from "@/mocks/rackets";
+import { ProductsListContainer } from "@/components/ProductsList/products-list-container";
 import { FC } from "react";
 
 const ProductsPage: FC = () => {
@@ -11,7 +10,7 @@ const ProductsPage: FC = () => {
       </aside>
       <div>
         <h1 className="text-3xl font-semibold">Ракетки</h1>
-        <ProductsList products={rackets} />
+        <ProductsListContainer />
       </div>
     </div>
   );
