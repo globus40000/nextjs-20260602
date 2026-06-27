@@ -1,10 +1,13 @@
 "use client";
 
-import { brands } from "@/mocks/brands";
 import { Brand } from "@/types/products";
 import { ChangeEventHandler, FC, useState } from "react";
 
-export const BrandFilter: FC = () => {
+type BrandFilterProps = {
+  brands: Brand[];
+};
+
+export const BrandFilter: FC<BrandFilterProps> = ({ brands }) => {
   const [brandId, setBrandId] = useState<Brand["id"] | "all">("all");
 
   const handleChangeBrand: ChangeEventHandler<HTMLInputElement> = (e) => {
