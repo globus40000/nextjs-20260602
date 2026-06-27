@@ -1,6 +1,5 @@
 import { LinkAll } from "@/components/LinkAll/link-all";
-import { ProductsSlider } from "@/components/ProductsSlider/products-slider";
-import { rackets } from "@/mocks/rackets";
+import { ProductsSliderContainer } from "@/components/ProductsSlider/products-slider-container";
 import { FC } from "react";
 
 const HomePage: FC = () => {
@@ -14,7 +13,7 @@ const HomePage: FC = () => {
           <h2>Ракетки</h2>
           <LinkAll productType="racket" />
         </div>
-        <ProductsSlider products={rackets.slice(0, 10)} />
+        <ProductsSliderContainer />
       </section>
     </div>
   );
