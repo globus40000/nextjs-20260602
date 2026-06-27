@@ -7,10 +7,12 @@ type NextImageProps = ComponentProps<typeof Image>;
 
 type ProductCardProps = {
   product: Product;
+  hLevel: 2 | 3;
 } & Pick<NextImageProps, "loading" | "preload">;
 
 export const ProductCard: FC<ProductCardProps> = ({
   product,
+  hLevel,
   loading,
   preload,
 }) => {
@@ -28,7 +30,8 @@ export const ProductCard: FC<ProductCardProps> = ({
           loading={loading}
           preload={preload}
         />
-        <h3 className="text-gray-700 text-sm mt-4">{name}</h3>
+        {hLevel === 2 && <h2 className="text-gray-700 text-sm mt-4">{name}</h2>}
+        {hLevel === 3 && <h3 className="text-gray-700 text-sm mt-4">{name}</h3>}
       </Link>
     </div>
   );

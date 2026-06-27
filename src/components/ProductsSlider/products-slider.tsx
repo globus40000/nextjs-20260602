@@ -17,7 +17,7 @@ export const ProductsSlider: FC<ProductsSliderProps> = ({ products }) => {
         renderItem={(product) => {
           return (
             <article>
-              <ProductCard product={product} />
+              <ProductCard product={product} hLevel={3} />
             </article>
           );
         }}
