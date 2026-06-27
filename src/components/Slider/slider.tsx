@@ -3,12 +3,8 @@
 import { useSlider } from "@/components/Slider/use-slider";
 import { ChevronLeftIcon } from "@/icons/chevron-left-icon";
 import { ChevronRightIcon } from "@/icons/chevron-right-icon";
-import { Identifiable } from "@/types/common";
-import { CSSProperties, ReactNode } from "react";
-
-type CSSPropertiesWithVariables = CSSProperties & {
-  [key: `--${string}`]: string | number;
-};
+import { CSSPropertiesWithVariables, Identifiable } from "@/types/common";
+import { ReactNode } from "react";
 
 type SliderProps<T extends Identifiable> = {
   items: T[];
