@@ -1,7 +1,14 @@
 import { BrandFilterContainer } from "@/components/BrandFilter/brand-filter-container";
 import { Loading } from "@/components/Loading/loading";
 import { ProductsListContainer } from "@/components/ProductsList/products-list-container";
+import { Metadata } from "next";
 import { FC, Suspense } from "react";
+
+export const metadata: Metadata = {
+  title: "Купить теннисные ракетки: каталог, цены, отзывы — Tennis Store",
+  description:
+    "В нашем каталоге представлены профессиональные и любительские теннисные ракетки. Фильтрация по брендам",
+};
 
 const ProductsPage: FC = () => {
   return (
