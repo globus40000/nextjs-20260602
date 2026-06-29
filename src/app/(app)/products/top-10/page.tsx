@@ -12,7 +12,7 @@ const ProductsTop10Page: FC = () => {
         </Suspense>
       </aside>
       <div>
-        <h1 className="text-3xl font-semibold">Топ-10 ракеток</h1>
+        <h1 className="text-3xl font-semibold mb-9">Топ-10 ракеток</h1>
         <Suspense fallback={<Loading />}>
           <ProductsListContainer top10 />
         </Suspense>

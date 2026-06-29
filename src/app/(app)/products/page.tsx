@@ -12,7 +12,7 @@ const ProductsPage: FC = () => {
         </Suspense>
       </aside>
       <div>
-        <h1 className="text-3xl font-semibold">Ракетки</h1>
+        <h1 className="text-3xl font-semibold mb-9">Ракетки</h1>
         <Suspense fallback={<Loading />}>
           <ProductsListContainer />
         </Suspense>

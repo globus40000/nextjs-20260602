@@ -17,7 +17,7 @@ export const ProductsList: FC<ProductsListProps> = ({ products }) => {
       {products.length === 0 ? (
         "Нет данных"
       ) : (
-        <ul className="flex flex-wrap gap-(--gap) mt-9" style={cssVarGap}>
+        <ul className="flex flex-wrap gap-(--gap)" style={cssVarGap}>
           {products.map((product) => (
             <li
               key={product.id}
