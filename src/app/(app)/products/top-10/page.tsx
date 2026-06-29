@@ -7,7 +7,9 @@ const ProductsTop10Page: FC = () => {
   return (
     <div className="grid grid-cols-[5fr_14fr_5fr]">
       <aside>
-        <BrandFilterContainer />
+        <Suspense fallback={<Loading />}>
+          <BrandFilterContainer />
+        </Suspense>
       </aside>
       <div>
         <h1 className="text-3xl font-semibold">Топ-10 ракеток</h1>
