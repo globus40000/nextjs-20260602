@@ -18,3 +18,5 @@ export type Product = {
   brandId: number;
   brand: Brand;
 };
+
+export type ProductMeta = Pick<Product, "id" | "name">;
