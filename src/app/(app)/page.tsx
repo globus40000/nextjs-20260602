@@ -18,6 +18,15 @@ const HomePage: FC = () => {
           <ProductsSliderContainer />
         </Suspense>
       </section>
+      <section className="mt-13">
+        <div className="flex items-baseline justify-between mb-9">
+          <h2>Топ-10 ракеток</h2>
+          <LinkAll productType="racket" />
+        </div>
+        <Suspense fallback={<Loading />}>
+          <ProductsSliderContainer top10 />
+        </Suspense>
+      </section>
     </div>
   );
 };
