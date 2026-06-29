@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import { FC } from "react";
 
 export const ProductsListContainer: FC = async () => {
-  const { isError, data: products } = await getProducts();
+  const { isError, data: products } = await getProducts({ page: 1, limit: 20 });
 
   if (isError) {
     throw new Error("Something went wrong");
