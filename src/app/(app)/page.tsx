@@ -1,7 +1,14 @@
 import { LinkAll } from "@/components/LinkAll/link-all";
 import { Loading } from "@/components/Loading/loading";
 import { ProductsSliderContainer } from "@/components/ProductsSlider/products-slider-container";
+import { Metadata } from "next";
 import { FC, Suspense } from "react";
+
+export const metadata: Metadata = {
+  title: "Магазин теннисных ракеток и экипировки — Tennis Store",
+  description:
+    "Широкий выбор теннисных ракеток от мировых брендов Wilson, Head, Babolat. Быстрая доставка по всей стране, гарантия качества и помощь в подборе",
+};
 
 const HomePage: FC = () => {
   return (
