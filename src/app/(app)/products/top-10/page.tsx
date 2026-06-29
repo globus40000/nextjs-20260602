@@ -1,7 +1,14 @@
 import { BrandFilterContainer } from "@/components/BrandFilter/brand-filter-container";
 import { Loading } from "@/components/Loading/loading";
 import { ProductsListContainer } from "@/components/ProductsList/products-list-container";
+import { Metadata } from "next";
 import { FC, Suspense } from "react";
+
+export const metadata: Metadata = {
+  title: "Рейтинг теннисных ракеток: Топ-10 лучших моделей — Tennis Store",
+  description:
+    "Самые популярные и покупаемые теннисные ракетки этого года. Честный топ-10 моделей от Wilson, Head, Babolat с ценами и характеристиками",
+};
 
 const ProductsTop10Page: FC = () => {
   return (
