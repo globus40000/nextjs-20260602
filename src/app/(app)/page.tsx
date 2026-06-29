@@ -1,6 +1,7 @@
 import { LinkAll } from "@/components/LinkAll/link-all";
+import { Loading } from "@/components/Loading/loading";
 import { ProductsSliderContainer } from "@/components/ProductsSlider/products-slider-container";
-import { FC } from "react";
+import { FC, Suspense } from "react";
 
 const HomePage: FC = () => {
   return (
@@ -13,7 +14,9 @@ const HomePage: FC = () => {
           <h2>Ракетки</h2>
           <LinkAll productType="racket" />
         </div>
-        <ProductsSliderContainer />
+        <Suspense fallback={<Loading />}>
+          <ProductsSliderContainer />
+        </Suspense>
       </section>
     </div>
   );
