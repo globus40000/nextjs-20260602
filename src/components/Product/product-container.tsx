@@ -1,15 +1,19 @@
 import { Product } from "@/components/Product/product";
-import { rackets } from "@/mocks/rackets";
+import { getProductById } from "@/services/get-product-by-id";
+import { Product as TypeProduct } from "@/types/products";
 import { notFound } from "next/navigation";
 import { FC } from "react";
 
 type ProductContainerProps = {
-  id: number;
+  id: TypeProduct["id"];
 };
 
-export const ProductContainer: FC<ProductContainerProps> = ({ id }) => {
-  const product = rackets.find(({ id: racketId }) => racketId === id);
+export const ProductContainer: FC<ProductContainerProps> = async ({ id }) => {
+  const { isError, data: product } = await getProductById(id);
 
+  if (isError) {
+    throw new Error("Something went wrong");
+  }
   if (!product) {
     return notFound();
   }
