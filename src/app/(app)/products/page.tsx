@@ -1,6 +1,7 @@
 import { BrandFilterContainer } from "@/components/BrandFilter/brand-filter-container";
 import { Loading } from "@/components/Loading/loading";
 import { ProductsListContainer } from "@/components/ProductsList/products-list-container";
+import { getProducts } from "@/services/get-products";
 import { FC, Suspense } from "react";
 
 const ProductsPage: FC = () => {
@@ -14,7 +15,9 @@ const ProductsPage: FC = () => {
       <div>
         <h1 className="text-3xl font-semibold mb-9">Ракетки</h1>
         <Suspense fallback={<Loading />}>
-          <ProductsListContainer />
+          <ProductsListContainer
+            promiseGetProducts={getProducts({ page: 1, limit: 20 })}
+          />
         </Suspense>
       </div>
     </div>
