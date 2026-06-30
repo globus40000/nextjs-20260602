@@ -20,6 +20,11 @@ export const Navigation: FC = () => {
             Топ-10
           </Link>
         </li>
+        <li>
+          <Link href="/login" highlightIfActive>
+            Войти
+          </Link>
+        </li>
       </ul>
     </nav>
   );
