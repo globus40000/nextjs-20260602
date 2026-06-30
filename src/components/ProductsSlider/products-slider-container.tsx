@@ -1,16 +1,16 @@
 import { ProductsSlider } from "@/components/ProductsSlider/products-slider";
-import { getProducts } from "@/services/get-products";
-import { getProductsTop10 } from "@/services/get-products-top-10";
+import { type Response } from "@/types/api";
+import { type Product } from "@/types/products";
 import { FC } from "react";
 
 type Props = {
-  top10?: boolean;
+  promiseGetProducts: Response<Product[]>;
 };
 
-export const ProductsSliderContainer: FC<Props> = async ({ top10 = false }) => {
-  const { isError, data: products = [] } = top10
-    ? await getProductsTop10()
-    : await getProducts({ page: 1, limit: 10 });
+export const ProductsSliderContainer: FC<Props> = async ({
+  promiseGetProducts,
+}) => {
+  const { isError, data: products = [] } = await promiseGetProducts;
 
   if (isError) {
     throw new Error("Something went wrong");

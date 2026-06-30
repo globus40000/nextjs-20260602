@@ -2,6 +2,7 @@ import { BrandFilterContainer } from "@/components/BrandFilter/brand-filter-cont
 import { Loading } from "@/components/Loading/loading";
 import { ProductsListContainer } from "@/components/ProductsList/products-list-container";
 import { Metadata } from "next";
+import { getProductsTop10 } from "@/services/get-products-top-10";
 import { FC, Suspense } from "react";
 
 export const metadata: Metadata = {
@@ -21,7 +22,7 @@ const ProductsTop10Page: FC = () => {
       <div>
         <h1 className="text-3xl font-semibold mb-9">Топ-10 ракеток</h1>
         <Suspense fallback={<Loading />}>
-          <ProductsListContainer top10 />
+          <ProductsListContainer promiseGetProducts={getProductsTop10()} />
         </Suspense>
       </div>
     </div>
