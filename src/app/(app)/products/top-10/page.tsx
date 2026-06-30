@@ -1,10 +1,10 @@
 import { BrandFilterContainer } from "@/components/BrandFilter/brand-filter-container";
 import { Loading } from "@/components/Loading/loading";
 import { ProductsListContainer } from "@/components/ProductsList/products-list-container";
-import { getProducts } from "@/services/get-products";
+import { getProductsTop10 } from "@/services/get-products-top-10";
 import { FC, Suspense } from "react";
 
-const ProductsPage: FC = () => {
+const ProductsTop10Page: FC = () => {
   return (
     <div className="grid grid-cols-[5fr_14fr_5fr]">
       <aside>
@@ -13,15 +13,13 @@ const ProductsPage: FC = () => {
         </Suspense>
       </aside>
       <div>
-        <h1 className="text-3xl font-semibold mb-9">Ракетки</h1>
+        <h1 className="text-3xl font-semibold mb-9">Топ-10 ракеток</h1>
         <Suspense fallback={<Loading />}>
-          <ProductsListContainer
-            promiseGetProducts={getProducts({ page: 1, limit: 20 })}
-          />
+          <ProductsListContainer promiseGetProducts={getProductsTop10()} />
         </Suspense>
       </div>
     </div>
   );
 };
 
-export default ProductsPage;
+export default ProductsTop10Page;

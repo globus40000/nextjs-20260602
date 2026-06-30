@@ -12,16 +12,20 @@ type ProductsSliderProps = {
 export const ProductsSlider: FC<ProductsSliderProps> = ({ products }) => {
   return (
     <div>
-      <Slider
-        items={products}
-        renderItem={(product) => {
-          return (
-            <article>
-              <ProductCard product={product} hLevel={3} />
-            </article>
-          );
-        }}
-      />
+      {products.length === 0 ? (
+        "Нет данных"
+      ) : (
+        <Slider
+          items={products}
+          renderItem={(product) => {
+            return (
+              <article>
+                <ProductCard product={product} hLevel={3} />
+              </article>
+            );
+          }}
+        />
+      )}
     </div>
   );
 };

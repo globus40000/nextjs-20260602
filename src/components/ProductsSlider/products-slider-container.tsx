@@ -1,7 +1,20 @@
 import { ProductsSlider } from "@/components/ProductsSlider/products-slider";
-import { rackets } from "@/mocks/rackets";
+import { type Response } from "@/types/api";
+import { type Product } from "@/types/products";
 import { FC } from "react";
 
-export const ProductsSliderContainer: FC = () => {
-  return <ProductsSlider products={rackets.slice(0, 10)} />;
+type Props = {
+  promiseGetProducts: Response<Product[]>;
+};
+
+export const ProductsSliderContainer: FC<Props> = async ({
+  promiseGetProducts,
+}) => {
+  const { isError, data: products = [] } = await promiseGetProducts;
+
+  if (isError) {
+    throw new Error("Something went wrong");
+  }
+
+  return <ProductsSlider products={products} />;
 };
