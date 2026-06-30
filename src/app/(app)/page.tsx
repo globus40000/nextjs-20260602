@@ -1,6 +1,8 @@
 import { LinkAll } from "@/components/LinkAll/link-all";
 import { Loading } from "@/components/Loading/loading";
 import { ProductsSliderContainer } from "@/components/ProductsSlider/products-slider-container";
+import { getProducts } from "@/services/get-products";
+import { getProductsTop10 } from "@/services/get-products-top-10";
 import { FC, Suspense } from "react";
 
 const HomePage: FC = () => {
@@ -15,7 +17,9 @@ const HomePage: FC = () => {
           <LinkAll productType="racket" />
         </div>
         <Suspense fallback={<Loading />}>
-          <ProductsSliderContainer />
+          <ProductsSliderContainer
+            promiseGetProducts={getProducts({ page: 1, limit: 10 })}
+          />
         </Suspense>
       </section>
       <section className="mt-13">
@@ -24,7 +28,7 @@ const HomePage: FC = () => {
           <LinkAll productType="racket" />
         </div>
         <Suspense fallback={<Loading />}>
-          <ProductsSliderContainer top10 />
+          <ProductsSliderContainer promiseGetProducts={getProductsTop10()} />
         </Suspense>
       </section>
     </div>
