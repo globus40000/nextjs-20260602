@@ -1,7 +1,7 @@
 "use server";
 
-import { BASE_API_URL } from "@/constants/api";
 import { parseSetCookie } from "@/helpers/parse-set-cookie";
+import { requestLogin } from "@/services/request-login";
 import { cookies } from "next/headers";
 
 type State = {
@@ -20,13 +20,9 @@ export const loginAction = async (
   const login = formData.get("login")?.toString() ?? "";
   const password = formData.get("password")?.toString() ?? "";
 
-  const result = await fetch(`${BASE_API_URL}/auth/login`, {
-    method: "POST",
-    body: JSON.stringify({ login, password }),
-    headers: { "Content-Type": "application/json" },
-  });
+  const { isError, response } = await requestLogin({ login, password });
 
-  if (result.status !== 200) {
+  if (isError) {
     return {
       error: "Invalid login or password",
       fields: { login, password },
@@ -35,7 +31,7 @@ export const loginAction = async (
 
   const cookiesStore = await cookies();
 
-  for (const cookie of parseSetCookie(result.headers.getSetCookie())) {
+  for (const cookie of parseSetCookie(response.headers.getSetCookie())) {
     const { name, value, options } = cookie;
 
     cookiesStore.set(name, value, options);
