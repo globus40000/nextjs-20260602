@@ -1,5 +1,5 @@
 import { SpinnerIcon } from "@/components/icons/spinner-icon";
-import { Button } from "@/ui/button";
+import { Button } from "@/components/ui/button";
 import { ComponentProps, FC } from "react";
 
 type Props = Omit<ComponentProps<"button">, "type"> & {
