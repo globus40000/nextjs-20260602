@@ -1,7 +1,7 @@
 "use client";
 
 import { BASE_API_URL } from "@/constants/api";
-import { SpinnerIcon } from "@/icons/spinner-icon";
+import { SpinnerIcon } from "@/components/icons/spinner-icon";
 import { Button } from "@/ui/button";
 import { FC, useTransition } from "react";
 

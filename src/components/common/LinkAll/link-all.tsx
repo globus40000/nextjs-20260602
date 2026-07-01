@@ -1,5 +1,5 @@
 import { Link } from "@/components/common/Link/link";
-import { ArrowUpRightIcon } from "@/icons/arrow-up-right-icon";
+import { ArrowUpRightIcon } from "@/components/icons/arrow-up-right-icon";
 import { ProductType } from "@/types/products";
 import { FC } from "react";
 

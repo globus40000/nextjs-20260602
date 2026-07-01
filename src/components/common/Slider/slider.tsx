@@ -1,8 +1,8 @@
 "use client";
 
 import { useSlider } from "@/components/common/Slider/use-slider";
-import { ChevronLeftIcon } from "@/icons/chevron-left-icon";
-import { ChevronRightIcon } from "@/icons/chevron-right-icon";
+import { ChevronLeftIcon } from "@/components/icons/chevron-left-icon";
+import { ChevronRightIcon } from "@/components/icons/chevron-right-icon";
 import { CSSPropertiesWithVariables, Identifiable } from "@/types/common";
 import { ReactNode } from "react";
 
