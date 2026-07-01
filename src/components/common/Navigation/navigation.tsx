@@ -1,4 +1,4 @@
-import { Link } from "@/components/Link/link";
+import { Link } from "@/components/common/Link/link";
 import { FC } from "react";
 
 export const Navigation: FC = () => {

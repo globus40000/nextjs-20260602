@@ -1,7 +1,7 @@
 "use client";
 
-import { ProductCard } from "@/components/ProductCard/product-card";
-import Slider from "@/components/Slider/slider";
+import { ProductCard } from "@/components/common/ProductCard/product-card";
+import Slider from "@/components/common/Slider/slider";
 import { Product } from "@/types/products";
 import { FC } from "react";
 

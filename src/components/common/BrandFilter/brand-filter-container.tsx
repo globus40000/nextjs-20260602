@@ -1,4 +1,4 @@
-import { BrandFilter } from "@/components/BrandFilter/brand-filter";
+import { BrandFilter } from "@/components/common/BrandFilter/brand-filter";
 import { getBrands } from "@/services/get-brands";
 import { FC } from "react";
 

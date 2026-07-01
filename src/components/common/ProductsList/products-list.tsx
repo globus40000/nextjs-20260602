@@ -1,4 +1,4 @@
-import { ProductCard } from "@/components/ProductCard/product-card";
+import { ProductCard } from "@/components/common/ProductCard/product-card";
 import { CSSPropertiesWithVariables } from "@/types/common";
 import { Product } from "@/types/products";
 import { FC } from "react";

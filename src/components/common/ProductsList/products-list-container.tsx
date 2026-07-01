@@ -1,4 +1,4 @@
-import { ProductsSlider } from "@/components/ProductsSlider/products-slider";
+import { ProductsList } from "@/components/common/ProductsList/products-list";
 import { type Response } from "@/types/api";
 import { type Product } from "@/types/products";
 import { FC } from "react";
@@ -7,7 +7,7 @@ type Props = {
   promiseGetProducts: Response<Product[]>;
 };
 
-export const ProductsSliderContainer: FC<Props> = async ({
+export const ProductsListContainer: FC<Props> = async ({
   promiseGetProducts,
 }) => {
   const { isError, data: products = [] } = await promiseGetProducts;
@@ -16,5 +16,5 @@ export const ProductsSliderContainer: FC<Props> = async ({
     throw new Error("Something went wrong");
   }
 
-  return <ProductsSlider products={products} />;
+  return <ProductsList products={products} />;
 };

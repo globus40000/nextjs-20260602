@@ -1,4 +1,4 @@
-import { Link } from "@/components/Link/link";
+import { Link } from "@/components/common/Link/link";
 import { ArrowUpRightIcon } from "@/icons/arrow-up-right-icon";
 import { ProductType } from "@/types/products";
 import { FC } from "react";

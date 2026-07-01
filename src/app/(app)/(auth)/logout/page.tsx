@@ -1,4 +1,4 @@
-import { LogoutButton } from "@/components/LogoutButton/logout-button";
+import { LogoutButton } from "@/components/common/LogoutButton/logout-button";
 import { FC } from "react";
 
 const LogoutPage: FC = () => {

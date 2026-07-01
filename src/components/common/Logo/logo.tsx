@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { Link } from "@/components/Link/link";
+import { Link } from "@/components/common/Link/link";
 
 export const Logo: FC = () => {
   return (

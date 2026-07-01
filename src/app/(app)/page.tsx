@@ -1,6 +1,6 @@
-import { LinkAll } from "@/components/LinkAll/link-all";
-import { Loading } from "@/components/Loading/loading";
-import { ProductsSliderContainer } from "@/components/ProductsSlider/products-slider-container";
+import { LinkAll } from "@/components/common/LinkAll/link-all";
+import { Loading } from "@/components/common/Loading/loading";
+import { ProductsSliderContainer } from "@/components/common/ProductsSlider/products-slider-container";
 import { Metadata } from "next";
 import { getProducts } from "@/services/get-products";
 import { getProductsTop10 } from "@/services/get-products-top-10";

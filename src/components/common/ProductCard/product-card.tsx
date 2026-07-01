@@ -1,4 +1,4 @@
-import { Link } from "@/components/Link/link";
+import { Link } from "@/components/common/Link/link";
 import { Product } from "@/types/products";
 import Image from "next/image";
 import { ComponentProps, FC } from "react";

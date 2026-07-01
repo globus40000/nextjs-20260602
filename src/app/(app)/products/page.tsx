@@ -1,6 +1,6 @@
-import { BrandFilterContainer } from "@/components/BrandFilter/brand-filter-container";
-import { Loading } from "@/components/Loading/loading";
-import { ProductsListContainer } from "@/components/ProductsList/products-list-container";
+import { BrandFilterContainer } from "@/components/common/BrandFilter/brand-filter-container";
+import { Loading } from "@/components/common/Loading/loading";
+import { ProductsListContainer } from "@/components/common/ProductsList/products-list-container";
 import { Metadata } from "next";
 import { getProducts } from "@/services/get-products";
 import { FC, Suspense } from "react";

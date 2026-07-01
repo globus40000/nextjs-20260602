@@ -1,7 +1,7 @@
 "use client";
 
-import { FormInput } from "@/components/FormInput/form-input";
-import { SubmitButton } from "@/components/SubmitButton/submit-button";
+import { FormInput } from "@/components/common/FormInput/form-input";
+import { SubmitButton } from "@/components/common/SubmitButton/submit-button";
 import { loginAction } from "@/server-actions/login-action";
 import { FC, useActionState, useEffect } from "react";
 
