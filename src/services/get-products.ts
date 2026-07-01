@@ -1,5 +1,5 @@
 import { BASE_API_URL } from "@/constants/api";
-import { Response } from "@/types/api";
+import { fetchApi } from "@/helpers/fetch-api";
 import { type Product } from "@/types/products";
 
 type Params = {
@@ -7,7 +7,7 @@ type Params = {
   limit?: number;
 };
 
-export const getProducts = async (params: Params = {}): Response<Product[]> => {
+export const getProducts = async (params: Params = {}) => {
   const url = new URL(`${BASE_API_URL}/products`);
 
   Object.entries(params).forEach(([key, value]) => {
@@ -16,16 +16,5 @@ export const getProducts = async (params: Params = {}): Response<Product[]> => {
     }
   });
 
-  const result = await fetch(url);
-
-  if (result.status === 404) {
-    return { isError: false, data: undefined };
-  }
-  if (!result.ok) {
-    return { isError: true, data: undefined };
-  }
-
-  const products = await result.json();
-
-  return { isError: false, data: products };
+  return fetchApi<Product[]>(url);
 };
