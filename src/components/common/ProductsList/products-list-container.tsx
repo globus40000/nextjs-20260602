@@ -1,10 +1,10 @@
 import { ProductsList } from "@/components/common/ProductsList/products-list";
-import { type Response } from "@/types/api";
+import { type ApiResponse } from "@/types/api";
 import { type Product } from "@/types/products";
 import { FC } from "react";
 
 type Props = {
-  promiseGetProducts: Response<Product[]>;
+  promiseGetProducts: ApiResponse<Product[]>;
 };
 
 export const ProductsListContainer: FC<Props> = async ({

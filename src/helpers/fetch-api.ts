@@ -1,9 +1,9 @@
-import { Response } from "@/types/api";
+import { ApiResponse } from "@/types/api";
 
 export async function fetchApi<T>(
   url: string | URL,
   options?: RequestInit,
-): Response<T> {
+): ApiResponse<T> {
   const response = await fetch(url, options);
 
   if (response.status === 404) {
