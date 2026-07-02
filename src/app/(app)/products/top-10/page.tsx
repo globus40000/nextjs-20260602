@@ -2,7 +2,7 @@ import { BrandFilterContainer } from "@/components/common/BrandFilter/brand-filt
 import { Loading } from "@/components/common/Loading/loading";
 import { ProductsListContainer } from "@/components/common/ProductsList/products-list-container";
 import { Metadata } from "next";
-import { getProductsTop10 } from "@/services/get-products-top-10";
+import { getProductsTop10 } from "@/services/products/get-products-top-10";
 import { FC, Suspense } from "react";
 
 export const metadata: Metadata = {
