@@ -1,15 +1,12 @@
 "use client";
 
-import { BASE_API_URL } from "@/constants/api";
 import { SpinnerIcon } from "@/components/icons/spinner-icon";
 import { Button } from "@/components/ui/button";
 import { FC, useTransition } from "react";
+import { requestLogout } from "@/services/request-logout";
 
 const handleLogout = async () => {
-  await fetch(`${BASE_API_URL}/auth/logout`, {
-    method: "DELETE",
-    credentials: "include",
-  });
+  await requestLogout();
 
   window.location.assign("/");
 };
