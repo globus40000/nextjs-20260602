@@ -1,7 +1,7 @@
 "use server";
 
 import { parseSetCookie } from "@/helpers/parse-set-cookie";
-import { requestLogin } from "@/services/request-login";
+import { requestLogin } from "@/services/auth/request-login";
 import { cookies } from "next/headers";
 
 type State = {

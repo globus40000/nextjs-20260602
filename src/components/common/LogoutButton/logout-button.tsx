@@ -3,7 +3,7 @@
 import { SpinnerIcon } from "@/components/icons/spinner-icon";
 import { Button } from "@/components/ui/button";
 import { FC, useTransition } from "react";
-import { requestLogout } from "@/services/request-logout";
+import { requestLogout } from "@/services/auth/request-logout";
 
 const handleLogout = async () => {
   await requestLogout();
