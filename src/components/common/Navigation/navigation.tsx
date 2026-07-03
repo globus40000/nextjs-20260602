@@ -1,12 +1,8 @@
-"use client";
-
+import { CurrentUserNavItem } from "@/components/common/CurrentUserNavItem/current-user-nav-item";
 import { Link } from "@/components/common/Link/link";
-import { AuthContext } from "@/providers/AuthContextProvider/auth-context";
-import { FC, useContext } from "react";
+import { FC } from "react";
 
 export const Navigation: FC = () => {
-  const { isAuthorized } = useContext(AuthContext);
-
   return (
     <nav>
       <ul className="flex gap-6 text-xs text-gray-700">
@@ -25,19 +21,9 @@ export const Navigation: FC = () => {
             Топ-10
           </Link>
         </li>
-        {isAuthorized ? (
-          <li>
-            <Link href="/logout" highlightIfActive>
-              Выйти
-            </Link>
-          </li>
-        ) : (
-          <li>
-            <Link href="/login" highlightIfActive>
-              Войти
-            </Link>
-          </li>
-        )}
+        <li>
+          <CurrentUserNavItem />
+        </li>
       </ul>
     </nav>
   );
