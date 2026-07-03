@@ -15,7 +15,11 @@ export const LogoutButton: FC = () => {
   const [isPending, startTransition] = useTransition();
 
   return (
-    <Button onClick={() => startTransition(handleLogout)} disabled={isPending}>
+    <Button
+      variant="secondary"
+      onClick={() => startTransition(handleLogout)}
+      disabled={isPending}
+    >
       {isPending && <SpinnerIcon className="h-4 w-4" />}
       Logout
     </Button>
