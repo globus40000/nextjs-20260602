@@ -7,7 +7,7 @@ export async function fetchApi<T>(
   const { skipResponseBody, ...fetchOptions } = options || {};
   const response = await fetch(url, fetchOptions);
 
-  if (response.status === 404 || response.status === 401) {
+  if (response.status === 404) {
     return { isError: false, data: undefined, response };
   }
   if (!response.ok) {
