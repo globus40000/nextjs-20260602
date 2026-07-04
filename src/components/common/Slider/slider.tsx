@@ -47,6 +47,7 @@ export default function Slider<T extends Identifiable>({
           className="w-10 h-10 text-gray-400 cursor-pointer mr-4 disabled:cursor-not-allowed disabled:opacity-30 shrink-0 -order-1"
           disabled={activePage === 0}
           onClick={() => scrollToPage(activePage - 1)}
+          aria-label="Назад"
         >
           <ChevronLeftIcon />
         </button>
@@ -55,6 +56,7 @@ export default function Slider<T extends Identifiable>({
           className="w-10 h-10 text-gray-400 cursor-pointer ml-4 disabled:cursor-not-allowed disabled:opacity-30 shrink-0"
           disabled={activePage >= pagesCount - 1}
           onClick={() => scrollToPage(activePage + 1)}
+          aria-label="Вперед"
         >
           <ChevronRightIcon />
         </button>
@@ -67,6 +69,12 @@ export default function Slider<T extends Identifiable>({
             onClick={() => scrollToPage(index)}
             disabled={activePage === index}
             className={`size-3 md:size-4 rounded-full bg-gray-200 cursor-pointer disabled:cursor-default disabled:bg-blue-400`}
+            aria-label={
+              activePage === index
+                ? undefined
+                : `Перейти к странице ${index + 1}`
+            }
+            aria-current={activePage === index ? "true" : undefined}
           />
         ))}
       </div>
