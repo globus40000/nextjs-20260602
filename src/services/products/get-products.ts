@@ -1,6 +1,7 @@
 import { BASE_API_URL } from "@/constants/api";
 import { fetchApi } from "@/helpers/fetch-api";
 import { type Product } from "@/types/products";
+import { cookies } from "next/headers";
 
 type Params = {
   page?: number;
@@ -16,5 +17,11 @@ export const getProducts = async (params: Params = {}) => {
     }
   });
 
-  return fetchApi<Product[]>(url);
+  const cookiesStore = await cookies();
+
+  return fetchApi<Product[]>(url, {
+    headers: {
+      Cookie: cookiesStore.toString(),
+    },
+  });
 };
