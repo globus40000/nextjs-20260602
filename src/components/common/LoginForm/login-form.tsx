@@ -34,7 +34,11 @@ export const LoginForm: FC = () => {
           disabled={isPending}
           defaultValue={fields?.password ?? ""}
         />
-        <SubmitButton disabled={isPending} isLoading={isPending} />
+        <SubmitButton
+          label="Войти"
+          disabled={isPending}
+          isLoading={isPending}
+        />
         {error && <div className="text-red-400">{error}</div>}
       </form>
     </div>
