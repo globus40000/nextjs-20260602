@@ -1,3 +1,4 @@
+import { ToggleIsFavorite } from "@/components/common/ToggleIsFavorite/toggle-is-favorite";
 import { type Product as TypeProduct } from "@/types/products";
 import Image from "next/image";
 import { FC } from "react";
@@ -22,13 +23,17 @@ export const Product: FC<ProductProps> = ({ product }) => {
         <h1 className="text-3xl font-medium">{name}</h1>
         <p>{description}</p>
       </div>
-      <div className="flex justify-center">
+      <div className="flex justify-center relative">
         <Image
           src={imageUrl}
           alt={name}
           width={620}
           height={720}
           className="object-cover aspect-620/720 border rounded-lg border-gray-200 shadow-xs"
+        />
+        <ToggleIsFavorite
+          product={product}
+          className="absolute top-0 right-0"
         />
       </div>
       <div>
