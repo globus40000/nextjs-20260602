@@ -30,8 +30,12 @@ export const ProductCard: FC<ProductCardProps> = ({
           loading={loading}
           preload={preload}
         />
-        {hLevel === 2 && <h2 className="text-gray-700 text-sm mt-4">{name}</h2>}
-        {hLevel === 3 && <h3 className="text-gray-700 text-sm mt-4">{name}</h3>}
+        {hLevel === 2 && (
+          <h2 className="text-gray-700 text-sm text-center mt-4">{name}</h2>
+        )}
+        {hLevel === 3 && (
+          <h3 className="text-gray-700 text-sm text-center mt-4">{name}</h3>
+        )}
       </Link>
     </div>
   );
