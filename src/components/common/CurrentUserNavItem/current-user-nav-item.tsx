@@ -10,7 +10,11 @@ export const CurrentUserNavItem: FC = () => {
 
   return (
     <div>
-      <Link href={isAuthorized ? "/profile" : "/login"} highlightIfActive>
+      <Link
+        href={isAuthorized ? "/profile" : "/login"}
+        aria-label={isAuthorized ? "Профиль" : "Вход"}
+        highlightIfActive
+      >
         <UserIcon className="h-4 w-4" />
         {isAuthorized && (
           <span className="absolute -bottom-0.5 -right-0.5 h-2 w-2 rounded-full bg-green-500 ring-2 ring-white" />
