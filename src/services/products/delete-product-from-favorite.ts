@@ -6,7 +6,7 @@ import { cookies } from "next/headers";
 export const deleteProductFromFavorite = async (id: Product["id"]) => {
   const cookiesStore = await cookies();
 
-  return fetchApi(`${BASE_API_URL}/product/${id}/favorite`, {
+  return fetchApi<unknown>(`${BASE_API_URL}/product/${id}/favorite`, {
     method: "DELETE",
     headers: {
       Cookie: cookiesStore.toString(),
