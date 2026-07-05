@@ -1,33 +1,19 @@
-import { addProductToFavorite } from "@/services/products/add-product-to-favorite";
-import { deleteProductFromFavorite } from "@/services/products/delete-product-from-favorite";
+import { handleFavoriteAction } from "@/server-actions/handle-favorite-action";
 import { Product } from "@/types/products";
-import { useCallback, useState, useTransition } from "react";
-
-const handleFavorite = async (
-  product: Product,
-): Promise<{ isError: boolean }> => {
-  const { id, userData } = product;
-
-  if (!userData) {
-    return { isError: true };
-  }
-
-  const { isError } = userData.isFavorite
-    ? await deleteProductFromFavorite(id)
-    : await addProductToFavorite(id);
-
-  return { isError };
-};
+import { useCallback, useOptimistic, useTransition } from "react";
 
 export const useIsFavorite = (product: Product) => {
-  const [isFavorite, setIsFavorite] = useState(
+  const [isFavorite, setIsFavorite] = useOptimistic(
     product.userData?.isFavorite ?? false,
+    (isFavorite) => !isFavorite,
   );
   const [isPending, startTransition] = useTransition();
 
   const handleClick = useCallback(() => {
     startTransition(async () => {
-      const { isError } = await handleFavorite(product);
+      setIsFavorite(!isFavorite);
+
+      const { isError } = await handleFavoriteAction(product);
 
       if (isError) {
         alert(
@@ -37,10 +23,8 @@ export const useIsFavorite = (product: Product) => {
         );
         return;
       }
-
-      setIsFavorite(!isFavorite);
     });
-  }, [isFavorite, product]);
+  }, [isFavorite, product, setIsFavorite]);
 
   return { isFavorite, handleClick, isPending };
 };
