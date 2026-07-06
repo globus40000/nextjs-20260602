@@ -1,8 +1,8 @@
-import { BrandFilterContainer } from "@/components/BrandFilter/brand-filter-container";
-import { Loading } from "@/components/Loading/loading";
-import { ProductsListContainer } from "@/components/ProductsList/products-list-container";
+import { BrandFilterContainer } from "@/components/common/BrandFilter/brand-filter-container";
+import { Loading } from "@/components/common/Loading/loading";
+import { ProductsListContainer } from "@/components/common/ProductsList/products-list-container";
 import { Metadata } from "next";
-import { getProductsTop10 } from "@/services/get-products-top-10";
+import { getProductsTop10 } from "@/services/products/get-products-top-10";
 import { FC, Suspense } from "react";
 
 export const metadata: Metadata = {

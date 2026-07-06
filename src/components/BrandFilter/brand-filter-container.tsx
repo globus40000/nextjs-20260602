@@ -1,9 +1,0 @@
-import { BrandFilter } from "@/components/BrandFilter/brand-filter";
-import { getBrands } from "@/services/get-brands";
-import { FC } from "react";
-
-export const BrandFilterContainer: FC = async () => {
-  const { data: brands = [] } = await getBrands();
-
-  return <BrandFilter brands={brands} />;
-};

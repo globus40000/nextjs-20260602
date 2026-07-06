@@ -5,6 +5,10 @@ export type Brand = {
 
 export type ProductType = "racket";
 
+export type UserData = {
+  isFavorite: boolean;
+};
+
 export type Product = {
   id: number;
   name: string;
@@ -17,6 +21,7 @@ export type Product = {
   description: string;
   brandId: number;
   brand: Brand;
+  userData: UserData | null;
 };
 
 export type ProductMeta = Pick<Product, "id" | "name">;

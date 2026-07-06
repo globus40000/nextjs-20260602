@@ -1,6 +1,6 @@
-import { Loading } from "@/components/Loading/loading";
-import { ProductContainer } from "@/components/Product/product-container";
-import { getProductMetaById } from "@/services/get-product-meta-by-id";
+import { Loading } from "@/components/common/Loading/loading";
+import { ProductContainer } from "@/components/common/Product/product-container";
+import { getProductMetaById } from "@/services/products/get-product-meta-by-id";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { FC, Suspense } from "react";
