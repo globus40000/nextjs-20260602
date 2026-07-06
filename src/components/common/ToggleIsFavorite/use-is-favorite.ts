@@ -1,29 +1,44 @@
-import { handleFavoriteAction } from "@/server-actions/handle-favorite-action";
+import { FavoriteContext } from "@/providers/FavoriteContextProvider/favorite-context";
+import { useIsFavoriteFor } from "@/providers/FavoriteContextProvider/use-is-favorite-for";
+import { addProductToFavorite } from "@/services/products/add-product-to-favorite";
+import { deleteProductFromFavorite } from "@/services/products/delete-product-from-favorite";
 import { Product } from "@/types/products";
-import { useCallback, useOptimistic, useTransition } from "react";
+import { useCallback, useContext, useState } from "react";
+
+const handleFavorite = async (
+  id: Product["id"],
+  isFavorite: boolean,
+): Promise<{ isError: boolean }> => {
+  const { isError } = isFavorite
+    ? await deleteProductFromFavorite(id)
+    : await addProductToFavorite(id);
+
+  return { isError };
+};
 
 export const useIsFavorite = (product: Product) => {
-  const [isFavorite, setIsFavorite] = useOptimistic(
-    product.userData?.isFavorite ?? false,
-    (isFavorite) => !isFavorite,
-  );
-  const [isPending, startTransition] = useTransition();
+  const isFavorite = useIsFavoriteFor(product);
+  const { setIsFavorite } = useContext(FavoriteContext);
+  const [isPending, setIsPending] = useState(false);
 
-  const handleClick = useCallback(() => {
-    startTransition(async () => {
-      setIsFavorite(!isFavorite);
+  const handleClick = useCallback(async () => {
+    const { id } = product;
 
-      const { isError } = await handleFavoriteAction(product);
+    setIsFavorite(id, !isFavorite);
+    setIsPending(true);
 
-      if (isError) {
-        alert(
-          isFavorite
-            ? "Не удалось удалить из избранного"
-            : "Не удалось добавить в избранное",
-        );
-        return;
-      }
-    });
+    const { isError } = await handleFavorite(id, isFavorite);
+
+    setIsPending(false);
+
+    if (isError) {
+      alert(
+        isFavorite
+          ? "Не удалось удалить из избранного"
+          : "Не удалось добавить в избранное",
+      );
+      setIsFavorite(id, isFavorite);
+    }
   }, [isFavorite, product, setIsFavorite]);
 
   return { isFavorite, handleClick, isPending };
