@@ -1,7 +1,8 @@
+import { NotFoundView } from "@/components/common/NotFoundView/not-found-view";
 import { FC } from "react";
 
 const NotFound: FC = () => {
-  return <div className="flex justify-center">Not found</div>;
+  return <NotFoundView />;
 };
 
 export default NotFound;
