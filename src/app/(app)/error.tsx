@@ -1,9 +1,10 @@
 "use client";
 
+import { ErrorMessage } from "@/components/common/ErrorMessage/error-message";
 import { FC } from "react";
 
 const Error: FC = () => {
-  return <div className="flex justify-center">Something went wrong</div>;
+  return <ErrorMessage />;
 };
 
 export default Error;
