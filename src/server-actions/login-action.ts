@@ -22,6 +22,10 @@ export const loginAction = async (
 
   const { isError, response } = await requestLogin({ login, password });
 
+  if (!response) {
+    throw new Error("Response must be included");
+  }
+
   if (isError) {
     return {
       error: "Invalid login or password",
