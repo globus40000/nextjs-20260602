@@ -22,6 +22,10 @@ export const signupAction = async (
 
   const { isError, response } = await requestSignup({ login, password });
 
+  if (!response) {
+    throw new Error("Response must be included");
+  }
+
   if (isError) {
     return {
       error: "Something went wrong",

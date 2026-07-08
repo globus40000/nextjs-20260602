@@ -12,5 +12,6 @@ export const requestSignup = async (params: Params) => {
     body: JSON.stringify(params),
     headers: { "Content-Type": "application/json" },
     skipResponseBody: true,
+    includeResponse: true,
   });
 };
