@@ -1,4 +1,4 @@
-import { ProductClientContainer } from "@/components/common/Product/product-client-container";
+import { ProductDynamicContainer } from "@/components/common/Product/product-dynamic-container";
 import { getProductMetaById } from "@/services/products/get-product-meta-by-id";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
@@ -31,7 +31,7 @@ const ProductClientPage: FC<Props> = async ({ params }) => {
   return (
     <div>
       <article>
-        <ProductClientContainer id={parseInt(id)} />
+        <ProductDynamicContainer id={parseInt(id)} />
       </article>
     </div>
   );

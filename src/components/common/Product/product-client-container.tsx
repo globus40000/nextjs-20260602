@@ -31,3 +31,5 @@ export const ProductClientContainer: FC<Props> = ({ id }) => {
     </div>
   );
 };
+
+export default ProductClientContainer;
