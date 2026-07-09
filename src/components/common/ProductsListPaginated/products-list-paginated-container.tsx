@@ -21,7 +21,10 @@ export const ProductsListPaginatedContainer: FC<Props> = ({ pageSize }) => {
   } = useProducts({ page, limit: pageSize });
 
   const updatePage = (page: number) => {
-    window.history.pushState({}, "", `?page=${page}`);
+    const newSearchParams = new URLSearchParams(searchParams);
+
+    newSearchParams.set("page", `${page}`);
+    window.history.pushState({}, "", `?${newSearchParams.toString()}`);
   };
 
   if (isLoading) {
