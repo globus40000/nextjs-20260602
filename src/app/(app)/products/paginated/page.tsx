@@ -19,9 +19,9 @@ const pageSize = 6;
 type Props = PageProps<"/products/paginated">;
 
 const ProductsPaginatedPage: FC<Props> = async ({ searchParams }) => {
-  const { page } = await searchParams;
-  const pageNumber = typeof page === "string" ? parseInt(page) : 1;
-  const params = { page: pageNumber, limit: pageSize };
+  const sp = await searchParams;
+  const pageNumber = typeof sp.page === "string" ? parseInt(sp.page) : 1;
+  const params = { ...sp, page: pageNumber, limit: pageSize };
   const result = await getProducts(params);
 
   return (
