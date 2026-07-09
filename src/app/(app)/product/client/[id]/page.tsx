@@ -26,9 +26,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 const ProductClientPage: FC<Props> = async ({ params }) => {
   const { id } = await params;
   const productId = parseInt(id);
-  const { data: product } = await getProductMetaById(productId);
+  const [, result] = await Promise.all([
+    getProductMetaById(productId),
+    getProductById(productId),
+  ]);
 
-  if (!product) {
+  if (!result.data) {
     return notFound();
   }
 
@@ -38,8 +41,7 @@ const ProductClientPage: FC<Props> = async ({ params }) => {
         <SWRConfig
           value={{
             fallback: {
-              [API_ROUTES.products.byId(productId)]:
-                await getProductById(productId),
+              [API_ROUTES.products.byId(productId)]: result,
             },
             revalidateIfStale: false,
             revalidateOnFocus: false,
