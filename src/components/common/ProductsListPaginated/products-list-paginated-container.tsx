@@ -14,11 +14,12 @@ type Props = {
 export const ProductsListPaginatedContainer: FC<Props> = ({ pageSize }) => {
   const searchParams = useSearchParams();
   const page = parseInt(searchParams.get("page") ?? "1");
-  const {
-    isLoading,
-    error,
-    data: products = [],
-  } = useProducts({ page, limit: pageSize });
+  const params = {
+    ...Object.fromEntries(searchParams.entries()),
+    page,
+    limit: pageSize,
+  };
+  const { isLoading, error, data: products = [] } = useProducts(params);
 
   const updatePage = (page: number) => {
     const newSearchParams = new URLSearchParams(searchParams);
