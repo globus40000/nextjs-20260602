@@ -3,6 +3,7 @@
 import { ErrorMessage } from "@/components/common/ErrorMessage/error-message";
 import { Loading } from "@/components/common/Loading/loading";
 import { ProductsListPaginated } from "@/components/common/ProductsListPaginated/products-list-paginated";
+import { toParams } from "@/helpers/to-params";
 import { useProducts } from "@/swr/products/use-products";
 import { useSearchParams } from "next/navigation";
 import { FC } from "react";
@@ -15,7 +16,7 @@ export const ProductsListPaginatedContainer: FC<Props> = ({ pageSize }) => {
   const searchParams = useSearchParams();
   const page = parseInt(searchParams.get("page") ?? "1");
   const params = {
-    ...Object.fromEntries(searchParams.entries()),
+    ...toParams(searchParams),
     page,
     limit: pageSize,
   };
