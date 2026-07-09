@@ -7,9 +7,11 @@ import { useProducts } from "@/swr/products/use-products";
 import { useSearchParams } from "next/navigation";
 import { FC } from "react";
 
-const pageSize = 6;
+type Props = {
+  pageSize: number;
+};
 
-export const ProductsListPaginatedContainer: FC = () => {
+export const ProductsListPaginatedContainer: FC<Props> = ({ pageSize }) => {
   const searchParams = useSearchParams();
   const page = parseInt(searchParams.get("page") ?? "1");
   const {
