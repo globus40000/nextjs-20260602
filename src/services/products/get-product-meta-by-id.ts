@@ -1,4 +1,4 @@
-import { API_ROUTES } from "@/constants/api";
+import { API_ROUTES } from "@/config/api";
 import { fetchApi } from "@/helpers/fetch-api";
 import { type Product, ProductMeta } from "@/types/products";
 

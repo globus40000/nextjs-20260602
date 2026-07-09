@@ -1,4 +1,4 @@
-import { API_ROUTES } from "@/constants/api";
+import { API_ROUTES } from "@/config/api";
 import { fetchApi } from "@/helpers/fetch-api";
 import { getProductById } from "@/services/products/get-product-by-id";
 import { Product } from "@/types/products";

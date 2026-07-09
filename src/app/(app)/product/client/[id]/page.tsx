@@ -1,5 +1,5 @@
 import { ProductClientContainer } from "@/components/common/Product/product-client-container";
-import { API_ROUTES } from "@/constants/api";
+import { API_ROUTES } from "@/config/api";
 import { getProductById } from "@/services/products/get-product-by-id";
 import { getProductMetaById } from "@/services/products/get-product-meta-by-id";
 import { Metadata } from "next";

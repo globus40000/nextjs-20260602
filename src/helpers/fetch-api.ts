@@ -1,4 +1,4 @@
-import { BASE_API_URL } from "@/constants/api";
+import { BASE_API_URL } from "@/config/api";
 import { ApiResponse } from "@/types/api";
 
 export async function fetchApi<T>(
