@@ -1,13 +1,9 @@
 import { API_ROUTES } from "@/config/api";
 import { fetchApi } from "@/helpers/fetch-api";
 import { withParams } from "@/helpers/with-params";
+import { type Params } from "@/types/common";
 import { type Product } from "@/types/products";
 import { cookies } from "next/headers";
-
-type Params = {
-  page?: number | string;
-  limit?: number | string;
-};
 
 export const getProducts = async (params: Params = {}) => {
   const cookiesStore = await cookies();
