@@ -3,7 +3,7 @@ import { useIsFavoriteFor } from "@/providers/FavoriteContextProvider/use-is-fav
 import { addProductToFavorite } from "@/services/products/add-product-to-favorite";
 import { deleteProductFromFavorite } from "@/services/products/delete-product-from-favorite";
 import { Product } from "@/types/products";
-import { useCallback, useContext, useState } from "react";
+import { useCallback, useContext, useTransition } from "react";
 
 const handleFavorite = async (
   id: Product["id"],
@@ -19,26 +19,24 @@ const handleFavorite = async (
 export const useIsFavorite = (product: Product) => {
   const isFavorite = useIsFavoriteFor(product);
   const { setIsFavorite } = useContext(FavoriteContext);
-  const [isPending, setIsPending] = useState(false);
+  const [isPending, startTransition] = useTransition();
 
   const handleClick = useCallback(async () => {
     const { id } = product;
 
     setIsFavorite(id, !isFavorite);
-    setIsPending(true);
+    startTransition(async () => {
+      const { isError } = await handleFavorite(id, isFavorite);
 
-    const { isError } = await handleFavorite(id, isFavorite);
-
-    setIsPending(false);
-
-    if (isError) {
-      alert(
-        isFavorite
-          ? "Не удалось удалить из избранного"
-          : "Не удалось добавить в избранное",
-      );
-      setIsFavorite(id, isFavorite);
-    }
+      if (isError) {
+        alert(
+          isFavorite
+            ? "Не удалось удалить из избранного"
+            : "Не удалось добавить в избранное",
+        );
+        setIsFavorite(id, isFavorite);
+      }
+    });
   }, [isFavorite, product, setIsFavorite]);
 
   return { isFavorite, handleClick, isPending };
