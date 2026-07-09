@@ -12,8 +12,8 @@ const fetcher = async (key: string): ReturnType<typeof getProducts> => {
 };
 
 type Params = {
-  page?: number;
-  limit?: number;
+  page?: number | string;
+  limit?: number | string;
 };
 
 export const useProducts = (params: Params = {}) => {

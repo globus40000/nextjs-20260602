@@ -5,8 +5,8 @@ import { type Product } from "@/types/products";
 import { cookies } from "next/headers";
 
 type Params = {
-  page?: number;
-  limit?: number;
+  page?: number | string;
+  limit?: number | string;
 };
 
 export const getProducts = async (params: Params = {}) => {
