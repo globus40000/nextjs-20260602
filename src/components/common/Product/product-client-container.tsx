@@ -4,7 +4,7 @@ import { ErrorMessage } from "@/components/common/ErrorMessage/error-message";
 import { Loading } from "@/components/common/Loading/loading";
 import { NotFoundView } from "@/components/common/NotFoundView/not-found-view";
 import { Product } from "@/components/common/Product/product";
-import { useProductById } from "@/swr/products/useProductById";
+import { useProductById } from "@/swr/products/use-product-by-id";
 import { type Product as TypeProduct } from "@/types/products";
 import { FC } from "react";
 
