@@ -1,10 +1,12 @@
 "use client";
 
+import { useIsFavorite } from "@/components/common/ToggleIsFavorite/use-is-favorite";
 import { HeartIcon } from "@/components/icons/heart-icon";
 import { AuthContext } from "@/providers/AuthContextProvider/auth-context";
+import { useHydrateFavorite } from "@/providers/FavoriteContextProvider/use-hydrate-favorite";
 import { Product } from "@/types/products";
 import clsx from "clsx";
-import { FC, useContext, useState } from "react";
+import { FC, useContext } from "react";
 
 type Props = {
   product: Product;
@@ -13,19 +15,9 @@ type Props = {
 
 export const ToggleIsFavorite: FC<Props> = ({ product, className }) => {
   const { isAuthorized } = useContext(AuthContext);
-  const [isFavorite, setIsFavorite] = useState(
-    product.userData?.isFavorite ?? false,
-  );
-  const [isPending, setIsPending] = useState(false);
+  const { isFavorite, handleClick, isPending } = useIsFavorite(product);
 
-  const handleClick = () => {
-    setIsFavorite(!isFavorite);
-    setIsPending(true);
-
-    setTimeout(() => {
-      setIsPending(false);
-    }, 500);
-  };
+  useHydrateFavorite(product);
 
   if (!isAuthorized) {
     return null;
