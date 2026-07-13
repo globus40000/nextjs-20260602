@@ -1,10 +1,10 @@
-import { BASE_API_URL } from "@/constants/api";
+import { API_ROUTES } from "@/config/api";
 import { fetchApi } from "@/helpers/fetch-api";
 import { type Product, ProductMeta } from "@/types/products";
 
 export const getProductMetaById = async (id: Product["id"]) => {
   const result = await fetchApi<{ product: ProductMeta }>(
-    `${BASE_API_URL}/meta/product/${id}`,
+    API_ROUTES.products.metaById(id),
   );
 
   return {

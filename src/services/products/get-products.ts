@@ -1,25 +1,14 @@
-import { BASE_API_URL } from "@/constants/api";
+import { API_ROUTES } from "@/config/api";
 import { fetchApi } from "@/helpers/fetch-api";
+import { withParams } from "@/helpers/with-params";
+import { type Params } from "@/types/common";
 import { type Product } from "@/types/products";
 import { cookies } from "next/headers";
 
-type Params = {
-  page?: number;
-  limit?: number;
-};
-
 export const getProducts = async (params: Params = {}) => {
-  const url = new URL(`${BASE_API_URL}/products`);
-
-  Object.entries(params).forEach(([key, value]) => {
-    if (value !== undefined) {
-      url.searchParams.append(key, String(value));
-    }
-  });
-
   const cookiesStore = await cookies();
 
-  return fetchApi<Product[]>(url, {
+  return fetchApi<Product[]>(withParams(API_ROUTES.products.list, params), {
     headers: {
       Cookie: cookiesStore.toString(),
     },

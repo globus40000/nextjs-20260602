@@ -1,20 +1,15 @@
 "use client";
 
+import { useBrands } from "@/components/common/BrandFilter/use-brands";
 import { Brand } from "@/types/products";
-import { ChangeEventHandler, FC, useState } from "react";
+import { FC } from "react";
 
 type BrandFilterProps = {
   brands: Brand[];
 };
 
 export const BrandFilter: FC<BrandFilterProps> = ({ brands }) => {
-  const [brandId, setBrandId] = useState<Brand["id"] | "all">("all");
-
-  const handleChangeBrand: ChangeEventHandler<HTMLInputElement> = (e) => {
-    const { value } = e.target;
-
-    setBrandId(value === "all" ? value : parseInt(value));
-  };
+  const { brandId, handleChangeBrand } = useBrands(brands);
 
   return (
     <fieldset className="pl-8 pr-4">

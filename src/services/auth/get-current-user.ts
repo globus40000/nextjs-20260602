@@ -1,4 +1,4 @@
-import { BASE_API_URL } from "@/constants/api";
+import { API_ROUTES } from "@/config/api";
 import { fetchApi } from "@/helpers/fetch-api";
 import { User } from "@/types/users";
 import { cookies } from "next/headers";
@@ -6,7 +6,7 @@ import { cookies } from "next/headers";
 export const getCurrentUser = async () => {
   const cookiesStore = await cookies();
 
-  const result = await fetchApi<{ user: User }>(`${BASE_API_URL}/auth/user`, {
+  const result = await fetchApi<{ user: User }>(API_ROUTES.auth.currentUser, {
     headers: {
       Cookie: cookiesStore.toString(),
     },

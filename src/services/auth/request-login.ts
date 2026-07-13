@@ -1,4 +1,4 @@
-import { BASE_API_URL } from "@/constants/api";
+import { API_ROUTES } from "@/config/api";
 import { fetchApi } from "@/helpers/fetch-api";
 
 type Params = {
@@ -7,10 +7,11 @@ type Params = {
 };
 
 export const requestLogin = async (params: Params) => {
-  return fetchApi<unknown>(`${BASE_API_URL}/auth/login`, {
+  return fetchApi<unknown>(API_ROUTES.auth.login, {
     method: "POST",
     body: JSON.stringify(params),
     headers: { "Content-Type": "application/json" },
     skipResponseBody: true,
+    includeResponse: true,
   });
 };
